@@ -39,10 +39,10 @@ const TodoList = () => {
             <div key={el._id} className={scss.todo}>
               <h1>{el.title}</h1>
               <img src={el.img} alt="" />
-              <button onClick={() => deleteTodo(el._id)}>delete</button>
+              <button onClick={() => deleteTodo(el._id!)}>delete</button>
               <button
                 onClick={() => {
-                  setEdit(el._id);
+                  setEdit(el._id!);
                   setValue("title", el.title);
                 }}
               >
