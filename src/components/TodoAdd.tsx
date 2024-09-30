@@ -9,13 +9,8 @@ const TodoAdd = () => {
   const { register, handleSubmit } = useForm<ITodo>();
   const [uploadFileMutation] = useUploadFileMutation();
 
-  // const onSubmit: SubmitHandler<ITodo> = async (data) => {
-  //   await postTodo(data);
-  //   console.log("🚀 ~ constonSubmit:SubmitHandler<ITodo>= ~ data:", data);
-  // };
-
   const onSubmit: SubmitHandler<ITodo> = async (data) => {
-    const file = data.file[0];
+    const file = data.file![0]!;
     const formData = new FormData();
     formData.append("file", file);
 
@@ -25,12 +20,10 @@ const TodoAdd = () => {
     const newData = {
       title: data.title,
       img: responseImage?.url!,
-      
     };
 
     await postTodo(newData);
   };
-
   return (
     <div>
       <div className="container">

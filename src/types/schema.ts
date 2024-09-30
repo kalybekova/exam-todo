@@ -1,8 +1,8 @@
 interface ITodo {
   title: string;
-  _id: number;
+  _id?: number;
   img: string;
-  file: string[];
+  file?: string[]
 }
 
 interface IFile {
