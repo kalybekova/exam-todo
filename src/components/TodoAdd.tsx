@@ -1,8 +1,8 @@
 "use client";
 import { useUploadFileMutation } from "@/redux/api/file";
 import { usePostTodoMutation } from "@/redux/api/todo";
-
 import { SubmitHandler, useForm } from "react-hook-form";
+import scss from "./TodoAdd.module.scss";
 
 const TodoAdd = () => {
   const [postTodo] = usePostTodoMutation();
@@ -25,14 +25,15 @@ const TodoAdd = () => {
     await postTodo(newData);
   };
   return (
-    <div>
+    <div className={scss.TodoAdd}>
       <div className="container">
-        <h1>Todo List</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input type="text" {...register("title", { required: true })} />
-          <input type="file" {...register("file", { required: true })} />
-          <button type="submit">send</button>
-        </form>
+        <div className={scss.content}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input type="text" {...register("title", { required: true })} />
+            <input type="file" {...register("file", { required: true })} />
+            <button type="submit">send</button>
+          </form>
+        </div>
       </div>
     </div>
   );

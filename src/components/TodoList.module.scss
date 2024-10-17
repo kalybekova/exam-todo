@@ -1,7 +1,23 @@
 .todoList {
+  width: 100%;
+  max-width: 700px;
   .todo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+
+    .btns {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
     img {
       max-width: 250px;
+      border-radius: 12px;
     }
   }
 }
